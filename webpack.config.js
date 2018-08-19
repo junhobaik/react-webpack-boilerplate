@@ -1,5 +1,5 @@
+const ManifestPlugin = require("webpack-manifest-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html"
@@ -25,6 +25,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
+    }),
+    new ManifestPlugin({
+      fileName: "manifest.json",
+      basePath: "./dist/"
     })
   ]
 };
