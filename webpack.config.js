@@ -1,13 +1,16 @@
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
+const outputDirectory = 'dist';
+
 module.exports = {
+  entry: ['./src/index.js'],
   output: {
-    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
+    path: path.resolve(__dirname, outputDirectory),
   },
   module: {
     rules: [
@@ -25,8 +28,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebPackPlugin({
-      template: './public/index.html',
+      template: './src/index.html',
       filename: 'index.html',
     }),
     new ManifestPlugin({
