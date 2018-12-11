@@ -1,0 +1,6 @@
+{
+  "short_name": "react-webpack-boilerplate",
+  "name": "react-webpack-boilerplate",
+  "start_url": ".",
+  "display": "standalone"
+}
